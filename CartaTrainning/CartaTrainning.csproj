@@ -95,6 +95,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Resources\Config\format_pizzeria.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
