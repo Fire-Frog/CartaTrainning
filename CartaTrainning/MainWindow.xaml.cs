@@ -24,5 +24,10 @@ namespace CartaTrainning
         {
             InitializeComponent();
         }
+
+        private void menuitemSalir_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

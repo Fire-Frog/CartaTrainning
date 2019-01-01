@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -85,6 +89,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,6 +98,37 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Iconos\address-book-new.png" />
+    <Resource Include="Resources\Iconos\application-x-executable.png" />
+    <Resource Include="Resources\Iconos\bug_24x24.ico" />
+    <Resource Include="Resources\Iconos\caret-right-3x.png" />
+    <Resource Include="Resources\Iconos\dialog-warning.png" />
+    <Resource Include="Resources\Iconos\document-new.png" />
+    <Resource Include="Resources\Iconos\document-open.png" />
+    <Resource Include="Resources\Iconos\document-print.png" />
+    <Resource Include="Resources\Iconos\document-save.png" />
+    <Resource Include="Resources\Iconos\edit-clear.png" />
+    <Resource Include="Resources\Iconos\eye-4x.png" />
+    <Resource Include="Resources\Iconos\go-down.png" />
+    <Resource Include="Resources\Iconos\go-next.png" />
+    <Resource Include="Resources\Iconos\go-previous.png" />
+    <Resource Include="Resources\Iconos\help-browser.png" />
+    <Resource Include="Resources\Iconos\key-3x.png" />
+    <Resource Include="Resources\Iconos\network-error.png" />
+    <Resource Include="Resources\Iconos\network-offline.png" />
+    <Resource Include="Resources\Iconos\network-transmit.png" />
+    <Resource Include="Resources\Iconos\person-3x.png" />
+    <Resource Include="Resources\Iconos\placeholder.png" />
+    <Resource Include="Resources\Iconos\process-stop.png" />
+    <Resource Include="Resources\Iconos\socio-add.png" />
+    <Resource Include="Resources\Iconos\system-log-out.png" />
+    <Resource Include="Resources\Iconos\system-search.png" />
+    <Resource Include="Resources\Iconos\system-software-update.png" />
+    <Resource Include="Resources\Iconos\system-users.png" />
+    <Resource Include="Resources\Iconos\view-refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
