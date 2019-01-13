@@ -1,0 +1,38 @@
+﻿<Window x:Class="CartaTrainning.InitialWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CartaTrainning"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="privet" Height="401" Width="553"
+        KeyDown="Window_KeyDown">
+    <Grid>
+        <Menu IsMainMenu="True" x:Name="menubarPrincipal" VerticalAlignment="Top" Height="22">
+            <MenuItem Header="Archivo" Height="22">
+                <MenuItem Header="Salir" Click="menuitemSalir_Click" InputGestureText="Ctrl+Q" x:Name="menuitemSalir">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Iconos/system-log-out.png" Height="18"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Tests?" Height="22">
+                <MenuItem x:Name="menuitemIngredientesPizza" Header="Ingredientes en Pizza" Click="menuitemIngredientesPizza_Click" >
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Iconos/Rifleman.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="menuitemValoresPizza" Header="Valores Pizza" Click="menuitemValoresPizza_Click">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Iconos/Tauren.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="menuitemValoresIngredientes" Header="Valores Pizza" Click="menuitemValoresIngredientes_Click">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Iconos/SkeletonArcher.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>

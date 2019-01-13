@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace CartaTrainning
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para Valores_Ingredientes.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Valores_Ingredientes : Window
     {
-        public MainWindow()
+        public Valores_Ingredientes()
         {
             InitializeComponent();
-        }
-
-        private void menuitemSalir_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
