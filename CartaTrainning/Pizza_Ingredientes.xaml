@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CartaTrainning"
-        mc:Ignorable="d"
-        Title="blyat cyka" Height="460" Width="801" ResizeMode="CanMinimize"
+        mc:Ignorable="d" 
+        Title="Ingredientes por Pizza" Height="460" Width="800" ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen" WindowState="Normal" ShowInTaskbar="True"
         Loaded="Window_Loaded" Icon="./Resources/Iconos/Sonya-Swarm-Pizza.ico"
         KeyDown="Window_KeyDown" SizeToContent="WidthAndHeight">
@@ -33,9 +33,9 @@
                 <ListBox x:Name="lbIngredientesElegidos" HorizontalAlignment="Left" Margin="10,44,0,10" Width="258" SelectionMode="Single"
                          KeyDown="lbIngredientesElegidos_KeyDown"/>
                 <Button x:Name="btnAceptar" Content="Aceptar" Margin="295,14,0,0" VerticalAlignment="Top" Height="22" Click="btnAceptar_Click" HorizontalAlignment="Left" Width="90"/>
-                <Button x:Name="btnOmitir" Content="Omitir" Visibility="Hidden" IsEnabled="False" Margin="295,41,0,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Left" Width="90"/>
-                <Button x:Name="btnAyuda" Content="Ayuda" Margin="295,68,0,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Left" Width="90" Click="btnAyuda_Click"/>
-                <TextBlock x:Name="tbAyuda" Margin="273,121,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="68" HorizontalAlignment="Left" Width="141"/>
+                <Button x:Name="btnAyuda" Content="Ayuda" Margin="295,41,0,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Left" Width="90" Click="btnAyuda_Click"/>
+                <Button x:Name="btnOmitir" Content="Omitir" Visibility="Hidden" IsEnabled="False" Margin="295,68,0,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Left" Width="90"/>
+                <TextBlock x:Name="tbAyuda" Margin="273,120,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="68" HorizontalAlignment="Left" Width="141"/>
                 <Button x:Name="btnAgregar" Content="+" HorizontalAlignment="Left" Margin="221,14,0,0" VerticalAlignment="Top" Width="21" Height="22" Click="btnAgregar_Click"/>
                 <Button x:Name="btnQuitar" Content="-" HorizontalAlignment="Left" Margin="247,14,0,0" VerticalAlignment="Top" Width="21" Height="22" Click="btnQuitar_Click"/>
             </Grid>
@@ -45,8 +45,10 @@
                 <Button x:Name="btnIniciar" Content="Iniciar" HorizontalAlignment="Left" Margin="7,8,0,0" Width="90" Height="20" VerticalAlignment="Top" Click="btnIniciar_Click"/>
                 <GroupBox Header="Nivel" Margin="105,0,0,0" Height="46">
                     <Grid x:Name="gbNiveles">
-                        <RadioButton x:Name="rbtnEasy" Content="EZ" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" GroupName="gnNivel"  IsChecked="True"/>
-                        <RadioButton x:Name="rbtnHard" Content="Hard"  HorizontalAlignment="Left" Margin="90,3,0,0" VerticalAlignment="Top" GroupName="gnNivel"/>
+                        <RadioButton x:Name="rbtnEasy" Content="Fácil" HorizontalAlignment="Left" 
+                                     Margin="0,3,0,0" VerticalAlignment="Top" GroupName="gnNivel"  IsChecked="True"
+                                     ToolTip=""/>
+                        <RadioButton x:Name="rbtnHard" Content="Difícil" HorizontalAlignment="Left" Margin="90,3,0,0" VerticalAlignment="Top" GroupName="gnNivel"/>
                     </Grid>
                 </GroupBox>
                 <Button x:Name="btnFinalizar" Content="Finalizar" IsEnabled="False" HorizontalAlignment="Left" Margin="7,33,0,0" Width="90" Height="20" VerticalAlignment="Top" Click="btnFinalizar_Click"/>
@@ -88,7 +90,7 @@
             <Grid x:Name="gbUltimaPregunta">
                 <Label x:Name="lblPizzaRespuesta" Content="--"  Margin="10,10,0,0" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Width="147" Height="26" />
                 <ListBox x:Name="lbRespuestaCorrecta" Margin="10,50,0,0" HorizontalAlignment="Left" Width="147" Height="100" VerticalAlignment="Top"/>
-                <Label x:Name="Respuesta" Content="Respuesta Usuario:" Margin="165,10,10,125" />
+                <Label x:Name="Respuesta" Content="Respuesta Usuario:" Margin="165,10,9.8,231.2" />
                 <ListBox x:Name="lbRespuestaUsuario" Margin="165,50,10,0" Height="100" VerticalAlignment="Top"/>
                 <Border BorderBrush="Black" BorderThickness="0" Margin="212,158,10,10" Height="100" Width="100">
                     <Image x:Name="imageRespuestaIncorrecta" Margin="9" />

@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CartaTrainning"
+        ResizeMode="CanMinimize" Icon="./Resources/Iconos/Sonya-Swarm-Pizza.ico"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="privet" Height="401" Width="553"
+        Title="Inicio Training" Height="401" Width="553"
         KeyDown="Window_KeyDown">
     <Grid>
         <Menu IsMainMenu="True" x:Name="menubarPrincipal" VerticalAlignment="Top" Height="22">
@@ -16,7 +17,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Tests?" Height="22">
+            <MenuItem Header="Pruebas" Height="22">
                 <MenuItem x:Name="menuitemIngredientesPizza" Header="Ingredientes en Pizza" Click="menuitemIngredientesPizza_Click" >
                     <MenuItem.Icon>
                         <Image Source="./Resources/Iconos/Rifleman.png"/>
@@ -27,7 +28,7 @@
                         <Image Source="./Resources/Iconos/Tauren.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem x:Name="menuitemValoresIngredientes" Header="Valores Pizza" Click="menuitemValoresIngredientes_Click">
+                <MenuItem x:Name="menuitemValoresIngredientes" Header="Valores de Ingredientes" Click="menuitemValoresIngredientes_Click">
                     <MenuItem.Icon>
                         <Image Source="./Resources/Iconos/SkeletonArcher.png"/>
                     </MenuItem.Icon>

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CartaTrainning"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize" Icon="./Resources/Iconos/Sonya-Swarm-Pizza.ico"
         Title="Valores_Pizza" Height="300" Width="300">
     <Grid>
 

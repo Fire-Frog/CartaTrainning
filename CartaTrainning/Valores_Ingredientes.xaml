@@ -5,8 +5,83 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CartaTrainning"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="Valores_Ingredientes" Height="300" Width="300">
+        Title="Valores de Ingredientes" Height="310.4" Width="800"
+        ResizeMode="CanMinimize" Icon="./Resources/Iconos/Sonya-Swarm-Pizza.ico"
+        KeyDown="Window_KeyDown" Loaded="Window_Loaded"
+        FocusManager.FocusedElement="{Binding ElementName=btnAceptar}">
     <Grid>
+        <Menu IsMainMenu="True" x:Name="menubarPrincipal" VerticalAlignment="Top" Height="22">
+            <MenuItem Header="_Archivo" Height="22">
+                <MenuItem Header="_Salir" Click="menuitemSalir_Click" Height="25" InputGestureText="Ctrl+Q" x:Name="menuitemSalir">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Iconos/system-log-out.png" Height="18"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <GroupBox Header="Pregunta" Margin="10,27,348.6,0" VerticalAlignment="Top" Height="78" HorizontalAlignment="Stretch">
+            <Grid Margin="2,0,-2,0" x:Name="gbPreguntas">
+                <TextBlock x:Name="lblPregunta" Text="Iniciar para realizar preguntas" Margin="10" TextWrapping="Wrap"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Opciones" Margin="451,27,10,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="78">
+            <Grid x:Name="gbOpciones">
+                <Button x:Name="btnIniciar" Content="_Iniciar" HorizontalAlignment="Left" Margin="7,8,0,0" Width="90" Height="20"
+                        VerticalAlignment="Top" Click="btnIniciar_Click"/>
+                <GroupBox Header="Nivel" Margin="105,0,0,0" Height="46">
+                    <Grid x:Name="gbNiveles">
+                        <RadioButton x:Name="rbtnEasy" Content="Fáci_l" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" GroupName="gnNivel"  IsChecked="True"/>
+                        <RadioButton x:Name="rbtnHard" Content="_Difícil" HorizontalAlignment="Left" Margin="90,3,0,0" VerticalAlignment="Top" GroupName="gnNivel"/>
+                    </Grid>
+                </GroupBox>
+                <Button x:Name="btnFinalizar" Content="_Finalizar" IsEnabled="False" HorizontalAlignment="Left" Margin="7,33,0,0" Width="90" Height="20" VerticalAlignment="Top" Click="btnFinalizar_Click"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Respuestas" Margin="10,110,348.6,0" Height="131" VerticalAlignment="Top">
+            <Grid>
+                <Label x:Name="lblValorIndividual" Content="Valor Individual" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="txbValorIndividual" Text="$0" HorizontalAlignment="Left" Height="23" Margin="135,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextAlignment="Right" VerticalContentAlignment="Center" TextChanged="txbVariable_TextChanged" PreviewTextInput="txbVariable_PreviewTextInput"/>
+                <Label x:Name="lblValorGrande" Content="Valor Grande" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="txbValorGrande" Text="$0" HorizontalAlignment="Left" Height="23" Margin="135,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextAlignment="Right" VerticalContentAlignment="Center" TextChanged="txbVariable_TextChanged" PreviewTextInput="txbVariable_PreviewTextInput"/>
+                <Button x:Name="btnAceptar" Content="A_ceptar" HorizontalAlignment="Left" Margin="290,13,0,0" VerticalAlignment="Top" Width="90" Height="22"/>
+            </Grid>
+        </GroupBox>
+        <StatusBar Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem Grid.Column="0" HorizontalAlignment="Center">
+                <TextBlock Name="lblRespuestasCorrectas" Text="Respuestas Correctas: 0"/>
+            </StatusBarItem>
+            <Separator Grid.Column="1" />
+            <StatusBarItem Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Name="lblTotalPreguntas" Text="Total Preguntas: 0"/>
+            </StatusBarItem>
+            <Separator Grid.Column="3" />
+            <StatusBarItem Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Name="lblPorcentajeCorrectas" Text="Correctas: 0%"/>
+            </StatusBarItem>
+            <Separator Grid.Column="5" />
+            <StatusBarItem Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Name="lblTiempo" Text="Tiempo 00:00:00"/>
+            </StatusBarItem>
+        </StatusBar>
+        <GroupBox Margin="451,110,9.6,0" Header="Última Respuesta" Height="131" VerticalAlignment="Top">
+            <Grid>
 
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>

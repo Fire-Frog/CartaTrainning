@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CartaTrainning" Icon="./Resources/Iconos/Sonya-Swarm-Pizza.ico"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="privet" Height="532" Width="550"
+        Title="privet" Height="532" Width="550" ResizeMode="CanMinimize"
         Loaded="Window_Loaded" KeyDown="Window_KeyDown">
     <Window.Resources>
     </Window.Resources>
