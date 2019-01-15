@@ -44,7 +44,10 @@ namespace CartaTrainning
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadJSON(); //cargar archivo json
+            var jsonObj = Pizzeria_RO.LoadJSON(); //cargar archivo json
+
+            totalPizzas = jsonObj.pizzas.OrderBy(x => x.id).ToList();
+            totalIngredientes = jsonObj.ingredientes.OrderBy(x => x.nombre).ToList();
 
             cboxIngredientes.ItemsSource = totalIngredientes;
             cboxIngredientes.DisplayMemberPath = "nombre";
@@ -55,7 +58,7 @@ namespace CartaTrainning
 
             //lblTotalPreguntas.Text = "Total Preguntas: " + totalPizzas.Count;
 
-            btnAyuda.Visibility = Visibility.Hidden;
+            btnAyuda.IsEnabled = false;
             tbAyuda.Visibility = Visibility.Hidden;
 
             aTimer.Elapsed += ATimer_Elapsed;
@@ -65,15 +68,6 @@ namespace CartaTrainning
             respuestasPizzas = new List<RespuestasPizzas>();
         }
 
-
-        private void LoadJSON()
-        {
-            var textjson = System.IO.File.ReadAllText("Resources/format_pizzeria.json");
-            var jsonObj = JsonConvert.DeserializeObject<Pizzeria_RO>(textjson);
-
-            totalPizzas = jsonObj.pizzas.OrderBy(x => x.id).ToList();
-            totalIngredientes = jsonObj.ingredientes.OrderBy(x => x.nombre).ToList();
-        }
 
         private void menuitemSalir_Click(object sender, RoutedEventArgs e)
         {
@@ -157,10 +151,20 @@ namespace CartaTrainning
             btnFinalizar.IsEnabled = true;
             if (rbtnEasy.IsChecked.Value)
             {
-                btnAyuda.Visibility = Visibility.Visible;
+                btnAyuda.IsEnabled = true;
                 tbAyuda.Visibility = Visibility.Visible;
                 tbAyuda.Text = string.Format("Total de Ingredientes: {0}/{1}", ingredientesElegidos.Count, preguntasPizzas[numPreg].ingredientes.Count);
             }
+            else
+            {
+                btnAyuda.IsEnabled = false;
+                tbAyuda.Visibility = Visibility.Visible;
+                tbAyuda.Text = string.Empty;
+            }
+
+            lbRespuestaCorrecta.Items.Clear();
+            lbRespuestaUsuario.Items.Clear();
+            lblPizzaRespuesta.Content = "--";
         }
 
         private void ATimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -187,25 +191,19 @@ namespace CartaTrainning
 
             if (respuestasPizzas.Count > 0)
             {
-                var respCorrectas = respuestasPizzas.Count(x => x.EsRespuestaCorrecta);
-                var totalPreguntas = respuestasPizzas.Last().NumeroRespuesta + 1;
-                var porcCorrectas = Math.Round((decimal)(respCorrectas * 100) / totalPreguntas, 0);
-
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine(string.Format("Respuestas Correctas: {0}", respCorrectas));
-                sb.AppendLine(string.Format("Correctas: {0} %", porcCorrectas));
-                sb.AppendLine(string.Format("Total Preguntas: {0}", totalPreguntas));
-                sb.AppendLine(string.Format("Tiempo: {0}", tiempoTranscurrido.ToString(@"hh\:mm\:ss")));
-
                 //MessageBox.Show(this, sb.ToString(), "Resultados", MessageBoxButton.OK);
                 Resultados_PizzaIngredientes window = new Resultados_PizzaIngredientes(respuestasPizzas, totalIngredientes, tiempoTranscurrido);
                 respuestasPizzas.Clear(); //clear after window
 
                 var isOpen = window.ShowDialog();
+                Focus(); //for ctrl+q command
             }
 
             tbAyuda.Text = string.Empty;
             tbAyuda.Visibility = Visibility.Visible;
+
+            ingredientesElegidos.Clear();
+            lbIngredientesElegidos.Items.Refresh();
         }
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
@@ -228,10 +226,8 @@ namespace CartaTrainning
                 EsRespuestaCorrecta = false
             });
 
-
-            //la cantidad de ingredientes es la correcta
             respuestasPizzas[numPreg].EsRespuestaCorrecta = respuestasPizzas[numPreg].IngredientesUsuario.All(x=> preguntasPizzas[numPreg].ingredientes.Contains(x)) //2 listas iguales sin importar orden de ingreso
-                                                                && respuestasPizzas[numPreg].IngredientesUsuario.Length == preguntasPizzas[numPreg].ingredientes.Count; //cantidad de objetos iguales
+                                                            && respuestasPizzas[numPreg].IngredientesUsuario.Length == preguntasPizzas[numPreg].ingredientes.Count; //cantidad de objetos iguales
             CalcularTotales();
 
             lblPizzaRespuesta.Content = respuestasPizzas[numPreg].nombre;
@@ -290,17 +286,14 @@ namespace CartaTrainning
 
         private void CalcularTotales()
         {
-            var respCorrectas = respuestasPizzas.Count(x => x.EsRespuestaCorrecta);
-            var totalPreguntas = respuestasPizzas.Last().NumeroRespuesta + 1;
+            decimal respCorrectas = respuestasPizzas.Count(x => x.EsRespuestaCorrecta);
+            decimal totalPreguntas = respuestasPizzas.Last().NumeroRespuesta + 1;
             decimal porcCorrectas = 0;
-            if (totalPreguntas > 0)
-            {
-                porcCorrectas = Math.Round((decimal)(respCorrectas * 100) / totalPreguntas, 0);
-            }
+            if (totalPreguntas > 0) porcCorrectas = respCorrectas / totalPreguntas;
 
             lblRespuestasCorrectas.Text = string.Format("Respuestas Correctas: {0}", respCorrectas.ToString());
             lblTotalPreguntas.Text = string.Format("Total Preguntas: {0}", totalPreguntas.ToString());
-            lblPorcentajeCorrectas.Text = string.Format("Correctas: {0}%", porcCorrectas.ToString());
+            lblPorcentajeCorrectas.Text = string.Format("Correctas: {0}", porcCorrectas.ToString("P1"));
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,12 @@ namespace CartaTrainning.Classes
     {
         public List<Ingrediente> ingredientes { get; set; }
         public List<Pizza> pizzas { get; set; }
+        public static Pizzeria_RO LoadJSON()
+        {
+            var textjson = System.IO.File.ReadAllText("Resources/format_pizzeria.json");
+            var jsonObj = JsonConvert.DeserializeObject<Pizzeria_RO>(textjson);
+            return jsonObj;
+        }
     }
 
     public static class BaseLabels

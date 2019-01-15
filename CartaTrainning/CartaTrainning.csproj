@@ -100,6 +100,7 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -119,6 +120,12 @@
     </Compile>
     <Compile Include="Resultados_PizzaIngredientes.xaml.cs">
       <DependentUpon>Resultados_PizzaIngredientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resultados_ValoresIngredientes.xaml.cs">
+      <DependentUpon>Resultados_ValoresIngredientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resultados_ValoresPizza.xaml.cs">
+      <DependentUpon>Resultados_ValoresPizza.xaml</DependentUpon>
     </Compile>
     <Compile Include="Valores_Ingredientes.xaml.cs">
       <DependentUpon>Valores_Ingredientes.xaml</DependentUpon>
@@ -140,6 +147,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resultados_PizzaIngredientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resultados_ValoresIngredientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resultados_ValoresPizza.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

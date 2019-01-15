@@ -34,6 +34,23 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="Listados" Height="22">
+                <MenuItem Header="Completo" Height="22" IsEnabled="False">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Iconos/gachiGASM.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Pizzas" Height="22" IsEnabled="False">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Iconos/monkaH.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Ingredientes" Height="22" IsEnabled="False">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Iconos/monkaS.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
         </Menu>
     </Grid>
 </Window>

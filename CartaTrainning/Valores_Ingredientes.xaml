@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CartaTrainning"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="Valores de Ingredientes" Height="310.4" Width="800"
+        Title="Valores de Ingredientes" Height="372" Width="800"
         ResizeMode="CanMinimize" Icon="./Resources/Iconos/Sonya-Swarm-Pizza.ico"
         KeyDown="Window_KeyDown" Loaded="Window_Loaded"
-        FocusManager.FocusedElement="{Binding ElementName=btnAceptar}">
+        FocusManager.FocusedElement="{Binding ElementName=btnIniciar}">
     <Grid>
         <Menu IsMainMenu="True" x:Name="menubarPrincipal" VerticalAlignment="Top" Height="22">
             <MenuItem Header="_Archivo" Height="22">
@@ -20,7 +20,7 @@
             </MenuItem>
         </Menu>
         <GroupBox Header="Pregunta" Margin="10,27,348.6,0" VerticalAlignment="Top" Height="78" HorizontalAlignment="Stretch">
-            <Grid Margin="2,0,-2,0" x:Name="gbPreguntas">
+            <Grid x:Name="gbPreguntas">
                 <TextBlock x:Name="lblPregunta" Text="Iniciar para realizar preguntas" Margin="10" TextWrapping="Wrap"/>
             </Grid>
         </GroupBox>
@@ -37,13 +37,20 @@
                 <Button x:Name="btnFinalizar" Content="_Finalizar" IsEnabled="False" HorizontalAlignment="Left" Margin="7,33,0,0" Width="90" Height="20" VerticalAlignment="Top" Click="btnFinalizar_Click"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Respuestas" Margin="10,110,348.6,0" Height="131" VerticalAlignment="Top">
-            <Grid>
-                <Label x:Name="lblValorIndividual" Content="Valor Individual" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="txbValorIndividual" Text="$0" HorizontalAlignment="Left" Height="23" Margin="135,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextAlignment="Right" VerticalContentAlignment="Center" TextChanged="txbVariable_TextChanged" PreviewTextInput="txbVariable_PreviewTextInput"/>
-                <Label x:Name="lblValorGrande" Content="Valor Grande" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="txbValorGrande" Text="$0" HorizontalAlignment="Left" Height="23" Margin="135,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextAlignment="Right" VerticalContentAlignment="Center" TextChanged="txbVariable_TextChanged" PreviewTextInput="txbVariable_PreviewTextInput"/>
-                <Button x:Name="btnAceptar" Content="A_ceptar" HorizontalAlignment="Left" Margin="290,13,0,0" VerticalAlignment="Top" Width="90" Height="22"/>
+        <GroupBox Header="Respuestas" Margin="11,110,348,31">
+            <Grid x:Name="gbRespuestas" IsEnabled="False">
+                <Label x:Name="lblValorIndividual" Content="Valor Individual:" HorizontalAlignment="Left" Margin="21,35,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="txbValorIndividual" Text="$0" HorizontalAlignment="Left" Height="23" Margin="146,38,0,0" TextWrapping="Wrap"
+                         VerticalAlignment="Top" Width="120" TextAlignment="Right" VerticalContentAlignment="Center"
+                         TextChanged="txbVariable_TextChanged" PreviewTextInput="txbVariable_PreviewTextInput"
+                         KeyDown="txbValorGeneral_KeyDown"/>
+                <Label x:Name="lblValorGrande" Content="Valor Grande:" HorizontalAlignment="Left" Margin="21,75,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="txbValorGrande" Text="$0" HorizontalAlignment="Left" Height="23" Margin="146,78,0,0" TextWrapping="Wrap"
+                         VerticalAlignment="Top" Width="120" TextAlignment="Right" VerticalContentAlignment="Center"
+                         TextChanged="txbVariable_TextChanged" PreviewTextInput="txbVariable_PreviewTextInput"
+                         KeyDown="txbValorGeneral_KeyDown"/>
+                <Button x:Name="btnAceptar" Content="A_ceptar" HorizontalAlignment="Left" Margin="299,39,0,0" VerticalAlignment="Top" Width="90" Height="22" Click="btnAceptar_Click"/>
+                <Button x:Name="btnAyuda" Content="A_yuda" HorizontalAlignment="Left" Margin="299,79,0,0" VerticalAlignment="Top" Width="90" Height="22" Click="btnAyuda_Click"/>
             </Grid>
         </GroupBox>
         <StatusBar Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
@@ -78,9 +85,49 @@
                 <TextBlock Name="lblTiempo" Text="Tiempo 00:00:00"/>
             </StatusBarItem>
         </StatusBar>
-        <GroupBox Margin="451,110,9.6,0" Header="Última Respuesta" Height="131" VerticalAlignment="Top">
-            <Grid>
-
+        <GroupBox Margin="451,110,10,31" Header="Última Respuesta">
+            <Grid x:Name="gbUltimaRespuesta" IsEnabled="False">
+                <Label Content="Ingrediente:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" FontWeight="Bold"/>
+                <Label Name="lblUltimoIngrediente" Content="--" HorizontalAlignment="Left" Margin="133,10,0,0" VerticalAlignment="Top" Width="178"/>
+                <Label Content="Valor Individual:" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top"/>
+                <Label Content="Valor Grande:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top"/>
+                <Label Name="lblValorIndividualCorrecto" Content="$0" HorizontalAlignment="Left" Margin="135,60,0,0" VerticalAlignment="Top" Width="60" Height="30" HorizontalContentAlignment="Center"/>
+                <Label Name="lblValorGrandeCorrecto" Content="$0" HorizontalAlignment="Left" Margin="135,90,0,0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center"/>
+                <Label Name="lblValorIndividualUsuario" Content="$0" HorizontalAlignment="Left" Margin="198,60,0,0" VerticalAlignment="Top" Width="58" Height="30" HorizontalContentAlignment="Center"/>
+                <Label Name="lblValorGrandeUsuario" Content="$0" HorizontalAlignment="Left" Margin="198,90,0,0" VerticalAlignment="Top" Width="58" HorizontalContentAlignment="Center"/>
+                <Label Content="Correcto" HorizontalAlignment="Left" Margin="133,41,0,0" VerticalAlignment="Top" Height="19" Width="64" Padding="0" HorizontalContentAlignment="Center"/>
+                <Label Content="Usuario" HorizontalAlignment="Left" Margin="198,41,0,0" VerticalAlignment="Top" Height="19" Width="64" Padding="0" HorizontalContentAlignment="Center"/>
+                <Rectangle HorizontalAlignment="Left" Height="63" Margin="195,47,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="2"/>
+                <Rectangle HorizontalAlignment="Left" Height="125" Margin="195,26,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="2" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Rectangle HorizontalAlignment="Left" Height="125" Margin="195,-3,0,0" Stroke="Black" StrokeThickness="2" VerticalAlignment="Top" Width="2" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Border BorderBrush="Black" BorderThickness="0" Margin="49,121,212,10">
+                    <Image x:Name="imageRespuestaIncorrecta" Margin="9"/>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="0" Margin="221,121,40,10">
+                    <Image x:Name="imageRespuestaCorrecta" Margin="9"/>
+                </Border>
+                <Border BorderBrush="{x:Null}" Margin="109,121,100,10">
+                    <!--BorderBrush="Black" BorderThickness="1"-->
+                    <TextBlock x:Name="tbSubtituloValidacion" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" FontSize="13" Margin="0,8"/>
+                </Border>
             </Grid>
         </GroupBox>
     </Grid>

@@ -33,12 +33,14 @@ namespace CartaTrainning
         {
             Pizza_Ingredientes window = new Pizza_Ingredientes();
             var isclosedwindow = window.ShowDialog();
+            Focus(); //for ctrl+q command
         }
 
         private void menuitemValoresPizza_Click(object sender, RoutedEventArgs e)
         {
             Valores_Pizza window = new Valores_Pizza();
             var isclosedwindow = window.ShowDialog();
+            Focus(); //for ctrl+q command
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -53,6 +55,7 @@ namespace CartaTrainning
         {
             Valores_Ingredientes window = new Valores_Ingredientes();
             var isclosedwindow = window.ShowDialog();
+            Focus(); //for ctrl+q command
         }
     }
 }
