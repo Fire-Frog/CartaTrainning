@@ -1,0 +1,48 @@
+﻿<Window x:Class="CartaTrainning.Listado_Ingrediente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CartaTrainning"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize" Icon="./Resources/Iconos/Sonya-Swarm-Pizza.ico"
+        Title="Listado - Pizza" Height="450" Width="480"
+        Loaded="Window_Loaded" KeyDown="Window_KeyDown">
+    <Grid>
+        <Menu IsMainMenu="True" x:Name="menubarPrincipal" VerticalAlignment="Top" Height="22">
+            <MenuItem Header="_Archivo" Height="22">
+                <MenuItem Header="_Salir" Height="25" InputGestureText="Ctrl+Q" Name="menuitemSalir">
+                    <MenuItem.Icon>
+                        <Image Source="./Resources/Iconos/system-log-out.png" Height="18"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <GroupBox Margin="10,27,281,10" Header="Ingredientes">
+            <Grid>
+                <ListBox Margin="10" Name="lbIngredientes" SelectionChanged="lbIngredientes_SelectionChanged" SelectionMode="Single"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Margin="198,27,10,10" Header="Detalle">
+            <Grid Name="gbDetalle">
+                <Label Content="Ingrediente:" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top"/>
+                <Label Name="lblPizza" Content="--" HorizontalAlignment="Left" Margin="88,21,0,0" VerticalAlignment="Top" Width="156" HorizontalContentAlignment="Right" FontWeight="Bold"/>
+                <Label Content="Valor Individual:" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top"/>
+                <Label Name="lblValorIndividual" Content="$0" HorizontalAlignment="Left" Margin="114,52,0,0" VerticalAlignment="Top" Width="130" HorizontalContentAlignment="Right"/>
+                <Label Content="Valor Grande:" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top"/>
+                <Label Name="lblValorGrande" Content="$0" HorizontalAlignment="Left" Margin="114,83,0,0" VerticalAlignment="Top" Width="130" HorizontalContentAlignment="Right"/>
+                <Label Content="Pizzas:" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top"/>
+                <Label Name="lblPizzas1" Content="--" HorizontalAlignment="Left" Margin="114,113,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="130"/>
+                <Label Name="lblPizzas2" HorizontalAlignment="Left" Margin="114,144,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="130"/>
+                <Label Name="lblPizzas3" HorizontalAlignment="Left" Margin="114,175,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="130"/>
+                <Label Name="lblPizzas4" HorizontalAlignment="Left" Margin="114,206,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="130"/>
+                <Label Name="lblPizzas5" HorizontalAlignment="Left" Margin="114,237,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="130"/>
+                <Label Name="lblPizzas6" HorizontalAlignment="Left" Margin="114,268,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="130"/>
+                <Label Name="lblPizzas7" HorizontalAlignment="Left" Margin="114,299,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="130"/>
+                <Label Name="lblPizzas8" HorizontalAlignment="Left" Margin="114,330,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="130"/>
+                <Image Name="imgAyudaPizza" HorizontalAlignment="Left" VerticalAlignment="Top" Source="./Resources/Iconos/help-browser.png" ToolTip="Pizzas que contienen el Ingrediente" Height="25" Width="24" Margin="54,114,0,0"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

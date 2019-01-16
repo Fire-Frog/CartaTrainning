@@ -57,5 +57,19 @@ namespace CartaTrainning
             var isclosedwindow = window.ShowDialog();
             Focus(); //for ctrl+q command
         }
+
+        private void menuitemPizzas_Click(object sender, RoutedEventArgs e)
+        {
+            Listado_Pizza window = new Listado_Pizza();
+            var isclosed = window.ShowDialog();
+            Focus();
+        }
+
+        private void menuitemIngredientes_Click(object sender, RoutedEventArgs e)
+        {
+            Listado_Ingrediente window = new Listado_Ingrediente();
+            var isclosed = window.ShowDialog();
+            Focus();
+        }
     }
 }

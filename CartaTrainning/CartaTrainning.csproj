@@ -115,6 +115,12 @@
     <Compile Include="InitialWindow.xaml.cs">
       <DependentUpon>InitialWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Listado_Ingrediente.xaml.cs">
+      <DependentUpon>Listado_Ingrediente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Listado_Pizza.xaml.cs">
+      <DependentUpon>Listado_Pizza.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pizza_Ingredientes.xaml.cs">
       <DependentUpon>Pizza_Ingredientes.xaml</DependentUpon>
     </Compile>
@@ -142,6 +148,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\Pizzeria_RO.cs" />
+    <Page Include="Listado_Ingrediente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Listado_Pizza.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pizza_Ingredientes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
